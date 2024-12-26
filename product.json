@@ -29,5 +29,6 @@
 	"licenseFileName": "LICENSE.txt",
 	"reportIssueUrl": "https://github.com/ttdyce/concept-note/issues/new",
 	"nodejsRepository": "https://nodejs.org",
-	"urlProtocol": "ccnote"
+	"urlProtocol": "ccnote",
+	"builtInExtensions": []
 }
