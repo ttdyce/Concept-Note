@@ -15,21 +15,19 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '22.11' # tested ok locally
-        # node-version-file: '.nvmrc' # tested error during `npm install` on GitHub Actions
-        cache: 'npm'
-
     # not sure if required
     - name: Setup Python 3
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.11' # tested ok locally
+        # node-version-file: '.nvmrc' # tested error during `npm install` on GitHub Actions
+        cache: 'npm'
+    - run: npm install
 
     # - name: Build for darwin x64
     #   run: npm run gulp vscode-darwin-x64-min
@@ -45,11 +43,8 @@ jobs:
         path: /Users/runner/work/Concept-Note/VSCode-darwin-arm64/Concept-Note.app
 
     - name: Create Release
-      id: create_release
-      # unmaintained from Mar 4, 2021 - https://github.com/actions/create-release/tree/main?tab=readme-ov-file
-      # uses: actions/create-release@v1
       uses: softprops/action-gh-release@v2
-      if: startsWith(github.ref, 'refs/tags/')
+      # if: startsWith(github.ref, 'refs/tags/')
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref_name }}
