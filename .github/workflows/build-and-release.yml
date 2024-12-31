@@ -24,7 +24,7 @@ jobs:
       with:
         node-version: '22.11' # tested ok locally
         # node-version-file: '.nvmrc'
-        # cache: 'npm'
+        cache: 'npm'
 
     # not sure if required
     # - name: Setup Python 3
