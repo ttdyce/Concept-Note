@@ -52,13 +52,13 @@ jobs:
         release_name: Release ${{ github.ref_name }}
         draft: true
         prerelease: true
-        files: ./repo/VSCode-darwin-arm64/Concept-Note.app
+        files: ${{ github.workspace }}/../VSCode-darwin-arm64/Concept-Note.app
 
     - name: Upload Release Asset for darwin x64
       uses: actions/upload-artifact@v4
       with:
         name: ccnote-darwin-arm64 ${{ github.ref_name }}
-        path: ./repo/VSCode-darwin-arm64/Concept-Note.app
+        path: ${{ github.workspace }}/../VSCode-darwin-arm64/Concept-Note.app
 
     # - name: Upload Release Asset for darwin arm64
     #   uses: actions/upload-release-asset@v1
