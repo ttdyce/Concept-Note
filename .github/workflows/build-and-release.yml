@@ -1,16 +1,16 @@
 name: 'Build and Release ccnote on push to release/* branches with tag'
 
-defaults:
-  run:
-    working-directory: ./repo/ccnote
+# defaults:
+#   run:
+#     working-directory: ./repo/ccnote
 
 on:
   push:
     branches:
       - 'release/*'
-    tags:
-      - '*'
 
+# the working directory (the cloned repo) is {{github.workspace}}, which is probably /Users/runner/work/Concept-Note/Concept-Note
+# see also the GitHub example: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#example-contents-of-the-github-context
 jobs:
   build-and-release-macos-arm64:
     runs-on: macos-latest
