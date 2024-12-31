@@ -1,9 +1,9 @@
 {
   "name": "ccnote-dev",
-  "version": "1.96.2",
-  "distro": "c883c91dadf5f063b26c86ffe01851acee3747c6",
+  "version": "0.1.0",
+  "distro": "99e8b21a7de5125f40544e0ce771a05c0bcbb672",
   "author": {
-    "name": "Microsoft Corporation"
+    "name": "ttdyce"
   },
   "license": "MIT",
   "main": "./out/main.js",
@@ -231,10 +231,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/microsoft/vscode.git"
+    "url": "https://github.com/ttdyce/concept-note.git"
   },
   "bugs": {
-    "url": "https://github.com/microsoft/vscode/issues"
+    "url": "https://github.com/ttdyce/concept-note/issues"
   },
   "optionalDependencies": {
     "windows-foreground-love": "0.5.0"
