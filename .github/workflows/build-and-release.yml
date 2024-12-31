@@ -41,7 +41,7 @@ jobs:
     - name: Upload Release Asset for darwin x64
       uses: actions/upload-artifact@v4
       with:
-        name: ccnote-darwin-arm64 ${{ github.ref_name }}
+        name: ccnote-darwin-arm64 ${{ github.sha }}
         path: /Users/runner/work/Concept-Note/VSCode-darwin-arm64/Concept-Note.app
 
     - name: Create Release
