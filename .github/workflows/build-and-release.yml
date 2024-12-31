@@ -22,15 +22,15 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        # node-version: '22.11' # tested ok locally
-        node-version-file: '.nvmrc'
-        cache: 'npm'
+        node-version: '22.11' # tested ok locally
+        # node-version-file: '.nvmrc'
+        # cache: 'npm'
 
     # not sure if required
-    - name: Setup Python 3
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+    # - name: Setup Python 3
+    #   uses: actions/setup-python@v5
+    #   with:
+    #     python-version: '3.11'
 
     - name: Install dependencies
       run: npm install
