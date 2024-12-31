@@ -47,7 +47,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       with:
         tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref_name }}
+        name: Release ${{ github.ref_name }}
         draft: true
         prerelease: true
         files: /Users/runner/work/Concept-Note/Concept-Note-darwin-arm64/Concept-Note.app
