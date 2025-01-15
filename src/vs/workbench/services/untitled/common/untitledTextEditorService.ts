@@ -234,13 +234,18 @@ export class UntitledTextEditorService extends Disposable implements IUntitledTe
 	}
 
 	private doCreate(options: IInternalUntitledTextEditorOptions): UntitledTextEditorModel {
+		const currentDate = new Date();
+		const year = currentDate.getFullYear();
+		const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+		const day = String(currentDate.getDate()).padStart(2, '0');
+
 
 		// Create a new untitled resource if none is provided
 		let untitledResource = options.untitledResource;
 		if (!untitledResource) {
 			let counter = 1;
 			do {
-				untitledResource = URI.from({ scheme: Schemas.untitled, path: `Untitled-${counter}` });
+				untitledResource = URI.from({ scheme: Schemas.untitled, path: `${year}-${month}-${day}--${counter}` });
 				counter++;
 			} while (this.mapResourceToModel.has(untitledResource));
 		}
