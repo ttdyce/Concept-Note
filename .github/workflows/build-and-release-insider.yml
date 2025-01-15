@@ -1,6 +1,7 @@
 name: 'Build and Release ccnote-insider everyday or manually to the insider repo using nightly branch'
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 23 * * *' # 11pm UTC is 7am UTC+8
 
