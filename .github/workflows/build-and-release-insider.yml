@@ -25,6 +25,8 @@ jobs:
       with:
         node-version-file: '.nvmrc'
         cache: 'npm'
+        registry-url: 'https://npm.pkg.github.com'
+
     - run: npm ci
 
     - name: Build for darwin arm64
@@ -67,6 +69,7 @@ jobs:
       with:
         node-version-file: '.nvmrc'
         cache: 'npm'
+        registry-url: 'https://npm.pkg.github.com'
     - run: npm ci
 
     - name: Build for darwin x64
