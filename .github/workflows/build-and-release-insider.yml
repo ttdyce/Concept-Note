@@ -14,6 +14,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: nightly
+        path: ccnote
 
     - name: Setup Python 3
       uses: actions/setup-python@v5
@@ -35,10 +36,10 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ccnote-darwin-arm64 ${{ github.sha }}
-        path: /Users/runner/work/Concept-Note/Concept-Note-darwin-arm64/Concept-Note.app
+        path: /Users/runner/work/ccnote/Concept-Note-darwin-arm64/Concept-Note.app
 
     - name: Zip the app directory
-      run: zip -r /Users/runner/work/Concept-Note/Concept-Note-darwin-arm64.zip /Users/runner/work/Concept-Note/Concept-Note-darwin-arm64
+      run: zip -r /Users/runner/work/ccnote/Concept-Note-darwin-arm64.zip /Users/runner/work/ccnote/Concept-Note-darwin-arm64
 
     - name: Create Release
       uses: softprops/action-gh-release@v2
@@ -48,7 +49,7 @@ jobs:
         name: Release ${{ github.ref_name }}
         draft: true
         prerelease: true
-        files: /Users/runner/work/Concept-Note/Concept-Note-darwin-arm64.zip
+        files: /Users/runner/work/ccnote/Concept-Note-darwin-arm64.zip
 
   build-and-release-macos-x64:
     runs-on: macos-13
@@ -56,6 +57,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        ref: nightly
+        path: ccnote
 
     - name: Setup Python 3
       uses: actions/setup-python@v5
@@ -76,10 +80,10 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ccnote-darwin-x64 ${{ github.sha }}
-        path: /Users/runner/work/Concept-Note/Concept-Note-darwin-x64/Concept-Note.app
+        path: /Users/runner/work/ccnote/Concept-Note-darwin-x64/Concept-Note.app
 
     - name: Zip the app directory
-      run: zip -r /Users/runner/work/Concept-Note/Concept-Note-darwin-x64.zip /Users/runner/work/Concept-Note/Concept-Note-darwin-x64
+      run: zip -r /Users/runner/work/ccnote/Concept-Note-darwin-x64.zip /Users/runner/work/ccnote/Concept-Note-darwin-x64
 
     - name: Create Release
       uses: softprops/action-gh-release@v2
@@ -89,4 +93,4 @@ jobs:
         name: Release ${{ github.ref_name }}
         draft: false
         prerelease: true
-        files: /Users/runner/work/Concept-Note/Concept-Note-darwin-x64.zip
+        files: /Users/runner/work/ccnote/Concept-Note-darwin-x64.zip
