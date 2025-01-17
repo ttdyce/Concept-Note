@@ -42,15 +42,9 @@ jobs:
     - name: Zip the app directory
       run: zip -r /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64.zip /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64
 
-    - name: Create Release
-      uses: softprops/action-gh-release@v2
-      with:
-        repository: ttdyce/Concept-Note-insider
-        tag_name: ${{ github.ref }}
-        name: Release ${{ github.ref_name }}
-        draft: true
-        prerelease: true
-        files: /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64.zip
+    - run: gh release create 0.1.0 /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64.zip -d -p -R ttdyce/Concept-Note-insider --title "test release" -n ""
+      env: 
+        GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
 
   build-and-release-macos-x64-insider:
     runs-on: macos-13
@@ -84,12 +78,6 @@ jobs:
     - name: Zip the app directory
       run: zip -r /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64.zip /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64
 
-    - name: Create Release
-      uses: softprops/action-gh-release@v2
-      with:
-        repository: ttdyce/Concept-Note-insider
-        tag_name: ${{ github.ref }}
-        name: Release ${{ github.ref_name }}
-        draft: false
-        prerelease: true
-        files: /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64.zip
+    - run: gh release create 0.1.0 /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64.zip -d -p -R ttdyce/Concept-Note-insider --title "test release" -n ""
+      env: 
+        GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
