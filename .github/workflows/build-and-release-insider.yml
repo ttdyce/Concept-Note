@@ -24,8 +24,8 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version-file: '.nvmrc'
-        cache: 'npm'
-        registry-url: 'https://npm.pkg.github.com'
+        # cache: 'npm'
+        # registry-url: 'https://npm.pkg.github.com'
 
     - run: npm ci
 
@@ -43,7 +43,7 @@ jobs:
       run: zip -r /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64.zip /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64
 
     - run: gh release create 0.1.0 /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64.zip -d -p -R ttdyce/Concept-Note-insider --title "test release" -n ""
-      env: 
+      env:
         GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
 
   build-and-release-macos-x64-insider:
@@ -79,5 +79,5 @@ jobs:
       run: zip -r /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64.zip /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64
 
     - run: gh release create 0.1.0 /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64.zip -d -p -R ttdyce/Concept-Note-insider --title "test release" -n ""
-      env: 
+      env:
         GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
