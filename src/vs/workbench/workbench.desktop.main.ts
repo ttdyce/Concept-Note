@@ -148,7 +148,7 @@ import './contrib/performance/electron-sandbox/performance.contribution.js';
 import './contrib/tasks/electron-sandbox/taskService.js';
 
 // External terminal
-import './contrib/externalTerminal/electron-sandbox/externalTerminal.contribution.js';
+// import './contrib/externalTerminal/electron-sandbox/externalTerminal.contribution.js';
 
 // Webview
 import './contrib/webview/electron-sandbox/webview.contribution.js';
@@ -169,8 +169,8 @@ import './contrib/multiDiffEditor/browser/multiDiffEditor.contribution.js';
 import './contrib/remoteTunnel/electron-sandbox/remoteTunnel.contribution.js';
 
 // Chat
-import './contrib/chat/electron-sandbox/chat.contribution.js';
-import './contrib/inlineChat/electron-sandbox/inlineChat.contribution.js';
+// import './contrib/chat/electron-sandbox/chat.contribution.js';
+// import './contrib/inlineChat/electron-sandbox/inlineChat.contribution.js';
 
 // Encryption
 import './contrib/encryption/electron-sandbox/encryption.contribution.js';

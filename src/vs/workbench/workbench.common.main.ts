@@ -183,7 +183,7 @@ import './contrib/performance/browser/performance.contribution.js';
 import './contrib/contextmenu/browser/contextmenu.contribution.js';
 
 // Notebook
-// import './contrib/notebook/browser/notebook.contribution.js';
+import './contrib/notebook/browser/notebook.contribution.js';
 
 // Speech
 import './contrib/speech/browser/speech.contribution.js';
@@ -241,7 +241,7 @@ import './contrib/sash/browser/sash.contribution.js';
 // import './contrib/debug/browser/debugViewlet.js';
 
 // Markers
-import './contrib/markers/browser/markers.contribution.js';
+// import './contrib/markers/browser/markers.contribution.js';
 
 // Merge Editor
 import './contrib/mergeEditor/browser/mergeEditor.contribution.js';
@@ -271,8 +271,8 @@ import './contrib/customEditor/browser/customEditor.contribution.js';
 import './contrib/externalUriOpener/common/externalUriOpener.contribution.js';
 
 // Extensions Management
-import './contrib/extensions/browser/extensions.contribution.js';
-import './contrib/extensions/browser/extensionsViewlet.js';
+// import './contrib/extensions/browser/extensions.contribution.js';
+// import './contrib/extensions/browser/extensionsViewlet.js';
 
 // Output View
 import './contrib/output/common/outputChannelModelService.js';
@@ -283,7 +283,7 @@ import './contrib/output/browser/outputView.js';
 import './contrib/terminal/terminal.all.js';
 
 // External terminal
-import './contrib/externalTerminal/browser/externalTerminal.contribution.js';
+// import './contrib/externalTerminal/browser/externalTerminal.contribution.js';
 
 // Relauncher
 import './contrib/relauncher/browser/relauncher.contribution.js';
@@ -352,7 +352,7 @@ import './contrib/languageDetection/browser/languageDetection.contribution.js';
 import './contrib/languageStatus/browser/languageStatus.contribution.js';
 
 // Authentication
-import './contrib/authentication/browser/authentication.contribution.js';
+// import './contrib/authentication/browser/authentication.contribution.js';
 
 // User Data Sync
 import './contrib/userDataSync/browser/userDataSync.contribution.js';
