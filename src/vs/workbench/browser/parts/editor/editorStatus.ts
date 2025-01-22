@@ -140,6 +140,7 @@ function toEditorWithLanguageSupport(input: EditorInput): ILanguageSupport | nul
 interface IEditorSelectionStatus {
 	selections?: Selection[];
 	charactersSelected?: number;
+	linesSelected?: number;
 }
 
 class StateChange {
@@ -334,9 +335,9 @@ class StatusInputMode extends Disposable {
 	}
 }
 
-const nlsSingleSelectionRange = localize('singleSelectionRange', "Ln {0}, Col {1} ({2} selected)");
+const nlsSingleSelectionRange = localize('singleSelectionRange', "Ln {0}, Col {1} ({3}, {2} selected)");
 const nlsSingleSelection = localize('singleSelection', "Ln {0}, Col {1}");
-const nlsMultiSelectionRange = localize('multiSelectionRange', "{0} selections ({1} characters selected)");
+const nlsMultiSelectionRange = localize('multiSelectionRange', "{0} selections ({2} lines, {1} characters selected)");
 const nlsMultiSelection = localize('multiSelection', "{0} selections");
 const nlsEOLLF = localize('endOfLineLineFeed', "LF");
 const nlsEOLCRLF = localize('endOfLineCarriageReturnLineFeed', "CRLF");
@@ -652,14 +653,14 @@ class EditorStatus extends Disposable {
 
 		if (info.selections.length === 1) {
 			if (info.charactersSelected) {
-				return format(nlsSingleSelectionRange, info.selections[0].positionLineNumber, info.selections[0].positionColumn, info.charactersSelected);
+				return format(nlsSingleSelectionRange, info.selections[0].positionLineNumber, info.selections[0].positionColumn, info.charactersSelected, info.linesSelected);
 			}
 
 			return format(nlsSingleSelection, info.selections[0].positionLineNumber, info.selections[0].positionColumn);
 		}
 
 		if (info.charactersSelected) {
-			return format(nlsMultiSelectionRange, info.selections.length, info.charactersSelected);
+			return format(nlsMultiSelectionRange, info.selections.length, info.charactersSelected, info.linesSelected);
 		}
 
 		if (info.selections.length > 0) {
@@ -837,6 +838,7 @@ class EditorStatus extends Disposable {
 
 			// Compute selection length
 			info.charactersSelected = 0;
+			info.linesSelected = 0;
 			const textModel = editorWidget.getModel();
 			if (textModel) {
 				for (const selection of info.selections) {
@@ -845,6 +847,7 @@ class EditorStatus extends Disposable {
 					}
 
 					info.charactersSelected += textModel.getCharacterCountInRange(selection);
+					info.linesSelected += selection.endLineNumber - selection.startLineNumber + 1;
 				}
 			}
 
