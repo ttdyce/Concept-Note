@@ -27,7 +27,7 @@ jobs:
         # cache: 'npm'
         # registry-url: 'https://npm.pkg.github.com'
 
-    - run: npm ci
+    - run: yarn install --immutable --immutable-cache --check-cache
 
     - name: Build for darwin arm64
       run: npm run gulp vscode-darwin-arm64-min
@@ -64,7 +64,7 @@ jobs:
         node-version-file: '.nvmrc'
 #        cache: 'npm'
 #        registry-url: 'https://npm.pkg.github.com'
-    - run: npm ci
+    - run: yarn install --immutable --immutable-cache --check-cache
 
     - name: Build for darwin x64
       run: npm run gulp vscode-darwin-x64-min
