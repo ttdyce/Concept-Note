@@ -11,7 +11,7 @@ import './media/terminal.css';
 import './media/terminalVoice.css';
 import './media/widgets.css';
 import './media/xterm.css';
-import * as nls from '../../../../nls.js';
+// import * as nls from '../../../../nls.js';
 import { CONTEXT_ACCESSIBILITY_MODE_ENABLED } from '../../../../platform/accessibility/common/accessibility.js';
 import { ContextKeyExpr } from '../../../../platform/contextkey/common/contextkey.js';
 import { Extensions as DragAndDropExtensions, IDragAndDropContributionRegistry, IDraggedResourceEditorInput } from '../../../../platform/dnd/browser/dnd.js';
@@ -22,10 +22,10 @@ import { GeneralShellType, ITerminalLogService, WindowsShellType } from '../../.
 import { TerminalLogService } from '../../../../platform/terminal/common/terminalLogService.js';
 import { registerTerminalPlatformConfiguration } from '../../../../platform/terminal/common/terminalPlatformConfiguration.js';
 import { EditorPaneDescriptor, IEditorPaneRegistry } from '../../../browser/editor.js';
-import { ViewPaneContainer } from '../../../browser/parts/views/viewPaneContainer.js';
+// import { ViewPaneContainer } from '../../../browser/parts/views/viewPaneContainer.js';
 import { WorkbenchPhase, registerWorkbenchContribution2 } from '../../../common/contributions.js';
 import { EditorExtensions, IEditorFactoryRegistry } from '../../../common/editor.js';
-import { IViewContainersRegistry, IViewsRegistry, Extensions as ViewContainerExtensions, ViewContainerLocation } from '../../../common/views.js';
+// import { IViewContainersRegistry, IViewsRegistry, Extensions as ViewContainerExtensions, ViewContainerLocation } from '../../../common/views.js';
 import { RemoteTerminalBackendContribution } from './remoteTerminalBackend.js';
 import { ITerminalConfigurationService, ITerminalEditorService, ITerminalGroupService, ITerminalInstanceService, ITerminalService, TerminalDataTransfers, terminalEditorId } from './terminal.js';
 import { registerTerminalActions } from './terminalActions.js';
@@ -36,14 +36,15 @@ import { TerminalEditorInput } from './terminalEditorInput.js';
 import { TerminalInputSerializer } from './terminalEditorSerializer.js';
 import { TerminalEditorService } from './terminalEditorService.js';
 import { TerminalGroupService } from './terminalGroupService.js';
-import { terminalViewIcon } from './terminalIcons.js';
+// import { terminalViewIcon } from './terminalIcons.js';
 import { TerminalInstanceService } from './terminalInstanceService.js';
 import { TerminalMainContribution } from './terminalMainContribution.js';
 import { setupTerminalMenus } from './terminalMenus.js';
 import { TerminalProfileService } from './terminalProfileService.js';
 import { TerminalService } from './terminalService.js';
-import { TerminalViewPane } from './terminalView.js';
-import { ITerminalProfileService, TERMINAL_VIEW_ID, TerminalCommandId } from '../common/terminal.js';
+// import { TerminalViewPane } from './terminalView.js';
+// import { ITerminalProfileService, TERMINAL_VIEW_ID, TerminalCommandId } from '../common/terminal.js';
+import { ITerminalProfileService } from '../common/terminal.js';
 import { registerColors } from '../common/terminalColorRegistry.js';
 import { registerTerminalConfiguration } from '../common/terminalConfiguration.js';
 import { TerminalContextKeyStrings, TerminalContextKeys } from '../common/terminalContextKey.js';
@@ -103,32 +104,32 @@ Registry.as<IDragAndDropContributionRegistry>(DragAndDropExtensions.DragAndDropC
 });
 
 // Register views
-const VIEW_CONTAINER = Registry.as<IViewContainersRegistry>(ViewContainerExtensions.ViewContainersRegistry).registerViewContainer({
-	id: TERMINAL_VIEW_ID,
-	title: nls.localize2('terminal', "Terminal"),
-	icon: terminalViewIcon,
-	ctorDescriptor: new SyncDescriptor(ViewPaneContainer, [TERMINAL_VIEW_ID, { mergeViewWithContainerWhenSingleView: true }]),
-	storageId: TERMINAL_VIEW_ID,
-	hideIfEmpty: true,
-	order: 3,
-}, ViewContainerLocation.Panel, { doNotRegisterOpenCommand: true, isDefault: true });
-Registry.as<IViewsRegistry>(ViewContainerExtensions.ViewsRegistry).registerViews([{
-	id: TERMINAL_VIEW_ID,
-	name: nls.localize2('terminal', "Terminal"),
-	containerIcon: terminalViewIcon,
-	canToggleVisibility: false,
-	canMoveView: true,
-	ctorDescriptor: new SyncDescriptor(TerminalViewPane),
-	openCommandActionDescriptor: {
-		id: TerminalCommandId.Toggle,
-		mnemonicTitle: nls.localize({ key: 'miToggleIntegratedTerminal', comment: ['&& denotes a mnemonic'] }, "&&Terminal"),
-		keybindings: {
-			primary: KeyMod.CtrlCmd | KeyCode.Backquote,
-			mac: { primary: KeyMod.WinCtrl | KeyCode.Backquote }
-		},
-		order: 3
-	}
-}], VIEW_CONTAINER);
+// const VIEW_CONTAINER = Registry.as<IViewContainersRegistry>(ViewContainerExtensions.ViewContainersRegistry).registerViewContainer({
+// 	id: TERMINAL_VIEW_ID,
+// 	title: nls.localize2('terminal', "Terminal"),
+// 	icon: terminalViewIcon,
+// 	ctorDescriptor: new SyncDescriptor(ViewPaneContainer, [TERMINAL_VIEW_ID, { mergeViewWithContainerWhenSingleView: true }]),
+// 	storageId: TERMINAL_VIEW_ID,
+// 	hideIfEmpty: true,
+// 	order: 3,
+// }, ViewContainerLocation.Panel, { doNotRegisterOpenCommand: true, isDefault: true });
+// Registry.as<IViewsRegistry>(ViewContainerExtensions.ViewsRegistry).registerViews([{
+// 	id: TERMINAL_VIEW_ID,
+// 	name: nls.localize2('terminal', "Terminal"),
+// 	containerIcon: terminalViewIcon,
+// 	canToggleVisibility: false,
+// 	canMoveView: true,
+// 	ctorDescriptor: new SyncDescriptor(TerminalViewPane),
+// 	openCommandActionDescriptor: {
+// 		id: TerminalCommandId.Toggle,
+// 		mnemonicTitle: nls.localize({ key: 'miToggleIntegratedTerminal', comment: ['&& denotes a mnemonic'] }, "&&Terminal"),
+// 		keybindings: {
+// 			primary: KeyMod.CtrlCmd | KeyCode.Backquote,
+// 			mac: { primary: KeyMod.WinCtrl | KeyCode.Backquote }
+// 		},
+// 		order: 3
+// 	}
+// }], VIEW_CONTAINER);
 
 // Register actions
 registerTerminalActions();
