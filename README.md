@@ -1,79 +1,169 @@
-# Visual Studio Code - Open Source ("Code - OSS")
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a id="readme-top"></a>
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-[![Feature Requests](https://img.shields.io/github/issues/microsoft/vscode/feature-request.svg)](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
-[![Bugs](https://img.shields.io/github/issues/microsoft/vscode/bug.svg)](https://github.com/microsoft/vscode/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3Abug)
-[![Gitter](https://img.shields.io/badge/chat-on%20gitter-yellow.svg)](https://gitter.im/Microsoft/vscode)
 
-## The Repository
 
-This repository ("`Code - OSS`") is where we (Microsoft) develop the [Visual Studio Code](https://code.visualstudio.com) product together with the community. Not only do we work on code and issues here, we also publish our [roadmap](https://github.com/microsoft/vscode/wiki/Roadmap), [monthly iteration plans](https://github.com/microsoft/vscode/wiki/Iteration-Plans), and our [endgame plans](https://github.com/microsoft/vscode/wiki/Running-the-Endgame). This source code is available to everyone under the standard [MIT license](https://github.com/microsoft/vscode/blob/main/LICENSE.txt).
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+<!-- [![Contributors][contributors-shield]][contributors-url] -->
+<!-- [![Forks][forks-shield]][forks-url] -->
+<!-- [![Stargazers][stars-shield]][stars-url] -->
+<!-- [![Issues][issues-shield]][issues-url] -->
+[![MIT License][license-shield]][license-url]
+<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
-## Visual Studio Code
 
-<p align="center">
-  <img alt="VS Code in action" src="https://user-images.githubusercontent.com/35271042/118224532-3842c400-b438-11eb-923d-a5f66fa6785a.png">
-</p>
 
-[Visual Studio Code](https://code.visualstudio.com) is a distribution of the `Code - OSS` repository with Microsoft-specific customizations released under a traditional [Microsoft product license](https://code.visualstudio.com/License/).
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <!-- 20250131 todo needed a product logo for 1.0.0 -->
+  <!-- <a href="https://github.com/ttdyce/concept-note">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a> -->
 
-[Visual Studio Code](https://code.visualstudio.com) combines the simplicity of a code editor with what developers need for their core edit-build-debug cycle. It provides comprehensive code editing, navigation, and understanding support along with lightweight debugging, a rich extensibility model, and lightweight integration with existing tools.
+  <h3 align="center">Concept-Note</h3>
 
-Visual Studio Code is updated monthly with new features and bug fixes. You can download it for Windows, macOS, and Linux on [Visual Studio Code's website](https://code.visualstudio.com/Download). To get the latest releases every day, install the [Insiders build](https://code.visualstudio.com/insiders).
+  <p align="center">
+		A familiar editor, a VSCode fork
+    <br />
+    <br />
+    <!-- <a href="https://github.com/ttdyce/concept-note">View Demo</a>
+    &middot;
+    <a href="https://github.com/ttdyce/concept-note/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    &middot;
+    <a href="https://github.com/ttdyce/concept-note/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a> -->
+  </p>
+</div>
 
-## Contributing
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-There are many ways in which you can participate in this project, for example:
+<!-- 20250131 todo needed a screenshot for 1.0.0 -->
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-* [Submit bugs and feature requests](https://github.com/microsoft/vscode/issues), and help us verify as they are checked in
-* Review [source code changes](https://github.com/microsoft/vscode/pulls)
-* Review the [documentation](https://github.com/microsoft/vscode-docs) and make pull requests for anything from typos to additional and new content
+VSCode have been the best code editor for a long time. As a developer, it is so powerful that people can do development work solely on this application. But sometimes, I just want to read a text file in a separate application. Sometimes, I just want to jot down some text without my IDE-grade extensions, while keeping the editing experience in VSCode.
 
-If you are interested in fixing issues and contributing directly to the code base,
-please see the document [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute), which covers the following:
+So I created this fork, which is an attempt to create a notepad from the VSCode source code.
+<!-- 20250131 -->
+<!-- And possibly, this fork can archive more than a text editor for your working day, and the terminal session -->
 
-* [How to build and run from source](https://github.com/microsoft/vscode/wiki/How-to-Contribute)
-* [The development workflow, including debugging and running tests](https://github.com/microsoft/vscode/wiki/How-to-Contribute#debugging)
-* [Coding guidelines](https://github.com/microsoft/vscode/wiki/Coding-Guidelines)
-* [Submitting pull requests](https://github.com/microsoft/vscode/wiki/How-to-Contribute#pull-requests)
-* [Finding an issue to work on](https://github.com/microsoft/vscode/wiki/How-to-Contribute#where-to-contribute)
-* [Contributing to translations](https://aka.ms/vscodeloc)
 
-## Feedback
 
-* Ask a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode)
-* [Request a new feature](CONTRIBUTING.md)
-* Upvote [popular feature requests](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
-* [File an issue](https://github.com/microsoft/vscode/issues)
-* Connect with the extension author community on [GitHub Discussions](https://github.com/microsoft/vscode-discussions/discussions) or [Slack](https://aka.ms/vscode-dev-community)
-* Follow [@code](https://twitter.com/code) and let us know what you think!
+<p align="right"> <a href="#readme-top">‣ back to top</a> </p>
 
-See our [wiki](https://github.com/microsoft/vscode/wiki/Feedback-Channels) for a description of each of these channels and information on some other available community-driven channels.
 
-## Related Projects
+<!-- GETTING STARTED -->
+## Getting Started
 
-Many of the core components and extensions to VS Code live in their own repositories on GitHub. For example, the [node debug adapter](https://github.com/microsoft/vscode-node-debug) and the [mono debug adapter](https://github.com/microsoft/vscode-mono-debug) repositories are separate from each other. For a complete list, please visit the [Related Projects](https://github.com/microsoft/vscode/wiki/Related-Projects) page on our [wiki](https://github.com/microsoft/vscode/wiki).
+### Prerequisites
 
-## Bundled Extensions
+Refer to the VSCode wiki: [How-to-Contribute#prerequisites](https://github.com/microsoft/vscode/wiki/How-to-Contribute#prerequisites). Having [nvm](https://github.com/nvm-sh/nvm) installed is also recommended.
 
-VS Code includes a set of built-in extensions located in the [extensions](extensions) folder, including grammars and snippets for many languages. Extensions that provide rich language support (code completion, Go to Definition) for a language have the suffix `language-features`. For example, the `json` extension provides coloring for `JSON` and the `json-language-features` extension provides rich language support for `JSON`.
+### Start debug session
 
-## Development Container
+1. Clone the repo
+   ```sh
+   git clone https://github.com/ttdyce/concept-note.git
+   ```
+2. Install NPM packages
+	```sh
+	cd concept-note
+	nvm use
+	npm install
+	```
+3. Open in VSCode
+   ```sh
+   code .
+   ```
+4. Run `> run build task` in the command palette
+5. Press `F5` to start debugging `VS Code` compound debug configuration
 
-This repository includes a Visual Studio Code Dev Containers / GitHub Codespaces development container.
 
-* For [Dev Containers](https://aka.ms/vscode-remote/download/containers), use the **Dev Containers: Clone Repository in Container Volume...** command which creates a Docker volume for better disk I/O on macOS and Windows.
-  * If you already have VS Code and Docker installed, you can also click [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode) to get started. This will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
+<p align="right"> <a href="#readme-top">‣ back to top</a> </p>
 
-* For Codespaces, install the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension in VS Code, and use the **Codespaces: Create New Codespace** command.
 
-Docker / the Codespace should have at least **4 Cores and 6 GB of RAM (8 GB recommended)** to run full build. See the [development container README](.devcontainer/README.md) for more information.
-
-## Code of Conduct
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
+<!-- LICENSE -->
 ## License
 
-Copyright (c) Microsoft Corporation. All rights reserved.
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-Licensed under the [MIT](LICENSE.txt) license.
+<p align="right"> <a href="#readme-top"> ‣ back to top</a> </p>
+
+
+<!-- CONTACT -->
+## Contact
+
+Auther: ttdyce - i@ttdyce.com
+
+Project Link: [https://github.com/ttdyce/concept-note](https://github.com/ttdyce/concept-note)
+
+<p align="right"> <a href="#readme-top"> ‣ back to top</a> </p>
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+Big Thanks!
+
+- Upstream
+  - [microsoft/vscode](https://github.com/microsoft/vscode)
+
+- Inspired by
+	- [VSCodium](https://github.com/VSCodium/vscodium)
+	- void
+		- [voideditor/void](https://github.com/voideditor/void)
+		- [Void Useful Links](https://github.com/voideditor/void/blob/main/VOID_USEFUL_LINKS.md)
+	- [Positron](https://github.com/posit-dev/positron)
+
+
+Also, this README is based on [othneildrew/Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+
+<p align="right"> <a href="#readme-top"> ‣ back to top</a> </p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/ttdyce/concept-note.svg?style=for-the-badge
+[contributors-url]: https://github.com/ttdyce/concept-note/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ttdyce/concept-note.svg?style=for-the-badge
+[forks-url]: https://github.com/ttdyce/concept-note/network/members
+[stars-shield]: https://img.shields.io/github/stars/ttdyce/concept-note.svg?style=for-the-badge
+[stars-url]: https://github.com/ttdyce/concept-note/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ttdyce/concept-note.svg?style=for-the-badge
+[issues-url]: https://github.com/ttdyce/concept-note/issues
+[license-shield]: https://img.shields.io/github/license/ttdyce/concept-note.svg?style=for-the-badge
+[license-url]: https://github.com/ttdyce/concept-note/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/ttdyce
+[product-screenshot]: images/screenshot.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[Svelte-url]: https://svelte.dev/
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com
