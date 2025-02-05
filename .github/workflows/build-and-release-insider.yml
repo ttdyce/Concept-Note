@@ -32,7 +32,15 @@ jobs:
         # cache: 'npm'
         # registry-url: 'https://npm.pkg.github.com'
 
-    - run: npm ci
+    - run: |
+        for i in {1..5}; do # try 5 times
+          npm ci && break
+          if [ $i -eq 5 ]; then
+            echo "Npm install failed too many times" >&2
+            exit 1
+          fi
+          echo "Npm install failed $i, trying again..."
+        done
 
     - name: Build for darwin ${{ inputs.vscode-arch }}
       run: npm run gulp vscode-darwin-${{ inputs.vscode-arch }}-min-ci
