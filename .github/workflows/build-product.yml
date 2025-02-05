@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 23 * * *' # 7am UTC+8
+jobs:
+  for-macos-x64:
+    uses: ./.github/workflows/build-product.yml
+    with:
+      vscode-arch: x64
+      runs-on: macos-13
+  for-macos-arm64:
+    uses: ./.github/workflows/build-product.yml
+    with:
+      vscode-arch: arm64
+      runs-on: macos-14
+
+  # reusable_workflow_job:
+  #   runs-on: macos-14
+  #   steps:
+  #   - uses: actions/labeler@v4
+  #     with:
+  #       repo-token: ${{ secrets.personal_access_token }}
+  #       configuration-path: ${{ inputs.config-path }}

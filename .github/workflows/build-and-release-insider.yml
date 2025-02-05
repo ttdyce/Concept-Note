@@ -1,13 +1,18 @@
 name: 'Build and Release ccnote-insider everyday or manually to the insider repo using nightly branch'
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 23 * * *' # 11pm UTC is 7am UTC+8
+  workflow_call:
+    inputs:
+      runs-on:
+        required: true
+        type: string
+      vscode-arch:
+        required: true
+        type: string
 
 jobs:
-  build-and-release-macos-arm64-insider:
-    runs-on: macos-latest
+  build-and-release-macos-insider:
+    runs-on: ${{ inputs.runs-on}}
 
     steps:
     - name: Checkout repository
@@ -29,55 +34,57 @@ jobs:
 
     - run: npm ci
 
-    - name: Build for darwin arm64
-      run: npm run gulp vscode-darwin-arm64-min
+    - name: Build for darwin ${{ inputs.vscode-arch }}
+      run: npm run gulp vscode-darwin-${{ inputs.vscode-arch }}-min-ci
 
 
-    - name: Upload Release Asset for darwin arm64
+    - name: Upload Release Asset for darwin ${{ inputs.vscode-arch }}
       uses: actions/upload-artifact@v4
       with:
-        name: ccnote-darwin-arm64 ${{ github.sha }}
-        path: /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64/Concept-Note.app
+        name: ccnote-darwin-${{ inputs.vscode-arch }} ${{ github.sha }}
+        path: /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-${{ inputs.vscode-arch }}/Concept-Note.app
 
     - name: Zip the app directory
-      run: zip -r /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64.zip /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64
+      run: |
+        cd ..
+        zip -Xry /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-${{ inputs.vscode-arch }}.zip /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-${{ inputs.vscode-arch }}
 
-    - run: gh release create 0.1.0 /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-arm64.zip -d -p -R ttdyce/Concept-Note-insider --title "test release" -n ""
+    - run: gh release create 0.1.0 /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-${{ inputs.vscode-arch }}.zip -d -p -R ttdyce/Concept-Note-insider --title "test release" -n ""
       env:
         GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
 
-  build-and-release-macos-x64-insider:
-    runs-on: macos-13
+#   build-and-release-macos-x64-insider:
+#     runs-on: macos-13
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v4
 
-    - name: Setup Python 3
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+#     - name: Setup Python 3
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.11'
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version-file: '.nvmrc'
-#        cache: 'npm'
-#        registry-url: 'https://npm.pkg.github.com'
-    - run: npm ci
+#     - name: Setup Node.js
+#       uses: actions/setup-node@v4
+#       with:
+#         node-version-file: '.nvmrc'
+# #        cache: 'npm'
+# #        registry-url: 'https://npm.pkg.github.com'
+#     - run: npm ci
 
-    - name: Build for darwin x64
-      run: npm run gulp vscode-darwin-x64-min
+#     - name: Build for darwin x64
+#       run: npm run gulp vscode-darwin-x64-min-ci
 
-    - name: Upload Release Asset for darwin x64
-      uses: actions/upload-artifact@v4
-      with:
-        name: ccnote-darwin-x64 ${{ github.sha }}
-        path: /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64/Concept-Note.app
+#     - name: Upload Release Asset for darwin x64
+#       uses: actions/upload-artifact@v4
+#       with:
+#         name: ccnote-darwin-x64 ${{ github.sha }}
+#         path: /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64/Concept-Note.app
 
-    - name: Zip the app directory
-      run: zip -r /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64.zip /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64
+#     - name: Zip the app directory
+#       run: zip -r /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64.zip /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64
 
-    - run: gh release create 0.1.0 /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64.zip -d -p -R ttdyce/Concept-Note-insider --title "test release" -n ""
-      env:
-        GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
+#     - run: gh release create 0.1.0 /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-x64.zip -d -p -R ttdyce/Concept-Note-insider --title "test release" -n ""
+#       env:
+#         GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
