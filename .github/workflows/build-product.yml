@@ -4,12 +4,12 @@ on:
     - cron: '0 23 * * *' # 7am UTC+8
 jobs:
   for-macos-x64:
-    uses: ./.github/workflows/build-product.yml
+    uses: ./.github/workflows/build-and-release-insider.yml
     with:
       vscode-arch: x64
       runs-on: macos-13
   for-macos-arm64:
-    uses: ./.github/workflows/build-product.yml
+    uses: ./.github/workflows/build-and-release-insider.yml
     with:
       vscode-arch: arm64
       runs-on: macos-14
