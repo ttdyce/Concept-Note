@@ -44,7 +44,7 @@ jobs:
         done
 
     - name: Build for darwin ${{ inputs.vscode-arch }}
-      run: npm run gulp vscode-darwin-${{ inputs.vscode-arch }}-min-ci
+      run: npm run gulp vscode-darwin-${{ inputs.vscode-arch }}-min
 
 
     - name: Upload Release Asset for darwin ${{ inputs.vscode-arch }}
