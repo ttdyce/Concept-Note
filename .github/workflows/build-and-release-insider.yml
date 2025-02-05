@@ -32,7 +32,8 @@ jobs:
         # cache: 'npm'
         # registry-url: 'https://npm.pkg.github.com'
 
-    - run: |
+    - name: run npm ci, auto retry up to 5 times
+      run: |
         for i in {1..5}; do # try 5 times
           npm ci && break
           if [ $i -eq 5 ]; then
