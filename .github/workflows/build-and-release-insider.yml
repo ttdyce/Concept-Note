@@ -46,6 +46,10 @@ jobs:
     - name: Build for darwin ${{ inputs.vscode-arch }}
       run: npm run gulp vscode-darwin-${{ inputs.vscode-arch }}-min
 
+    - name: Zip the app directory
+      run: |
+        cd ..
+        zip -Xry Concept-Note-darwin-${{ inputs.vscode-arch }}.zip Concept-Note-darwin-${{ inputs.vscode-arch }}
 
     - name: Upload Release Asset for darwin ${{ inputs.vscode-arch }}
       uses: actions/upload-artifact@v4
@@ -53,14 +57,10 @@ jobs:
         name: ccnote-darwin-${{ inputs.vscode-arch }} ${{ github.sha }}
         path: /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-${{ inputs.vscode-arch }}/Concept-Note.app
 
-    - name: Zip the app directory
-      run: |
-        cd ..
-        zip -Xry Concept-Note-darwin-${{ inputs.vscode-arch }}.zip Concept-Note-darwin-${{ inputs.vscode-arch }}
 
     - run: gh release create ${{ github.sha }} Concept-Note-darwin-${{ inputs.vscode-arch }}.zip -d -p -R ttdyce/Concept-Note-insider --title "insider-${{ github.sha }}" -n ""
       env:
-        GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 #   build-and-release-macos-x64-insider:
 #     runs-on: macos-13
