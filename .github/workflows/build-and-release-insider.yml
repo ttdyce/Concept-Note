@@ -9,6 +9,9 @@ on:
       vscode-arch:
         required: true
         type: string
+      GH_TOKEN:
+        required: true
+        type: string
 
 jobs:
   build-and-release-macos-insider:
@@ -56,11 +59,11 @@ jobs:
     - name: Zip the app directory
       run: |
         cd ..
-        zip -Xry /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-${{ inputs.vscode-arch }}.zip /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-${{ inputs.vscode-arch }}
+        zip -Xry Concept-Note-darwin-${{ inputs.vscode-arch }}.zip Concept-Note-darwin-${{ inputs.vscode-arch }}
 
-    - run: gh release create 0.1.0 /Users/runner/work/${{ github.event.repository.name }}/Concept-Note-darwin-${{ inputs.vscode-arch }}.zip -d -p -R ttdyce/Concept-Note-insider --title "test release" -n ""
+    - run: gh release create ${{ github.sha }} Concept-Note-darwin-${{ inputs.vscode-arch }}.zip -d -p -R ttdyce/Concept-Note-insider --title "insider-${{ github.sha }}" -n ""
       env:
-        GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
+        GH_TOKEN: ${{ inputs.GH_TOKEN }}
 
 #   build-and-release-macos-x64-insider:
 #     runs-on: macos-13
