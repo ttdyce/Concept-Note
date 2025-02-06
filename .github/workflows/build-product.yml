@@ -8,13 +8,11 @@ jobs:
     with:
       vscode-arch: x64
       runs-on: macos-13
-      GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
   for-macos-arm64:
     uses: ./.github/workflows/build-and-release-insider.yml
     with:
       vscode-arch: arm64
       runs-on: macos-14
-      GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
 
   # reusable_workflow_job:
   #   runs-on: macos-14

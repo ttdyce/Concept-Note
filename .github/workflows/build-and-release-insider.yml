@@ -9,9 +9,6 @@ on:
       vscode-arch:
         required: true
         type: string
-      GH_TOKEN:
-        required: true
-        type: string
 
 jobs:
   build-and-release-macos-insider:
@@ -63,7 +60,7 @@ jobs:
 
     - run: gh release create ${{ github.sha }} Concept-Note-darwin-${{ inputs.vscode-arch }}.zip -d -p -R ttdyce/Concept-Note-insider --title "insider-${{ github.sha }}" -n ""
       env:
-        GH_TOKEN: ${{ inputs.GH_TOKEN }}
+        GH_TOKEN: ${{ secrets.INSIDER_RELEASE_TOKEN }}
 
 #   build-and-release-macos-x64-insider:
 #     runs-on: macos-13
